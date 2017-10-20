@@ -20,9 +20,7 @@
 <button ion-button clear color="link" (click)="goToEmailReset()">> I Forgot My Password</button>
 
 <hr />
-
-<p><em>This app was built with love by Troy & Selene. For more information on the wonderful things they do, please call or text them at <a href="tel:+250-522-0151">250-522-0151</a></em>.</p>
-
+  
 <form [formGroup]="pwdForm" (ngSubmit)="pwdAdmin(pwdForm.value)">
     <ion-item>
       <ion-label floating>Admin Password</ion-label>
@@ -34,7 +32,7 @@
 <br />
 
 <div class='adminSection' *ngIf='this.accessAdmin'>
-  <h1>Ying Ying's Announcement Form</h1>
+  <h1>Announcement Form</h1>
   <form [formGroup]="adminForm" (ngSubmit)="wltAdmin(adminForm.value)">
     <ion-item>
       <ion-label floating>Title</ion-label>
