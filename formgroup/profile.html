@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar color='dark'>
+    <ion-title>My Profile</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)='closeModal()'><ion-icon name='close' color='link'></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+<img *ngIf='this.userImg'
+  [src]='this.userImg'
+  [title]='this.userName'/>
+<p *ngIf='this.userName'>Name: {{this.userName}}</p>
+<p *ngIf='this.userEmail'>Email: {{this.userEmail}}</p>
+<p *ngIf='this.userTel'>Phone Number: {{this.userTel}}</p>
+
+<button ion-button clear color="link" (click)="goToEmailReset()">> I Forgot My Password</button>
+
+<hr />
+  
+<form [formGroup]="pwdForm" (ngSubmit)="pwdAdmin(pwdForm.value)">
+    <ion-item>
+      <ion-label floating>Admin Password</ion-label>
+      <ion-input type='password' formControlName='adminPwd' name='adminPwd'></ion-input>
+    </ion-item>
+    <button ion-button type='submit' color='link'>Admin Log In</button>
+</form>
+
+<br />
+
+<div class='adminSection' *ngIf='this.accessAdmin'>
+  <h1>Announcement Form</h1>
+  <form [formGroup]="adminForm" (ngSubmit)="wltAdmin(adminForm.value)">
+    <ion-item>
+      <ion-label floating>Title</ion-label>
+      <ion-input type='text' formControlName='name' name='name'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Latest Announcements</ion-label>
+      <ion-textarea type='text' formControlName='description' name='description'></ion-textarea>
+    </ion-item>
+
+    <button ion-button type='submit' color='link'>Post Announcement</button>
+
+  </form>
+
+</div>
+
+</ion-content>
+
+<ion-footer no-border>
+   <ion-toolbar color='dark'>
+     <ion-title text-center class="footerTitle"></ion-title>
+  </ion-toolbar>
+</ion-footer>
